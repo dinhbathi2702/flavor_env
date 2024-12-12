@@ -29,6 +29,27 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+    productFlavors {
+        production {
+            flavorDimensions "app"
+            resValue "string", "app_name", "production app"
+            // signingConfig signingConfigs.release
+        }
+        staging {
+            flavorDimensions "app"
+            applicationIdSuffix ".staging"
+            resValue "string", "app_name", "staging app"
+            // signingConfig signingConfigs.release
+            versionNameSuffix "-staging"
+        }
+        uat {
+            flavorDimensions "app"
+            resValue "string", "app_name", "uat app"
+            // signingConfig signingConfigs.release
+            applicationIdSuffix ".uat"
+            versionNameSuffix "-uat"
+        }
+    }
 
     buildTypes {
         release {
